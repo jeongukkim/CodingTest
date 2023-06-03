@@ -14,4 +14,4 @@ def solution(n,m,k,array):
         stack += 1
     
     return answer
-print(solution(4, 6, 2, [1, 2, 3, 4]))
+# print(solution(4, 6, 2, [1, 2, 3, 4]))

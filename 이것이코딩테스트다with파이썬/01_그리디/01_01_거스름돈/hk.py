@@ -5,7 +5,7 @@ def solution(a):
         while a >= l:
             answer += 1
             a -= l
-    print(a)
+    # print(a)
     return answer
 
-print(solution(990))
+# print(solution(990))
