@@ -1,33 +1,42 @@
 import time
 import importlib
+import copy
 
-people = ["hk"]
+people = ["hk","answer"]
 
 test_cases = [
-    (30),
-    (120),
-    (380),
-    (540),
-    (1000),
-    (10),
-    (50),
-    (200),
-    (750),
-    (990),
-]
-results = [
-    3,
-    3,
-    7,
-    5,
-    2,
-    1,
-    1,
-    2,
-    4,
-    10,
+    # Test Case 1
+    ([3, 1, 2], 5),
+    # Test Case 2
+    ([4, 2, 3, 6, 7, 1, 5, 8], 16),
+    # Test Case 3
+    ([2, 2, 2, 2], 8),
+    # Test Case 4
+    ([1, 1, 1, 1], 3),
+    # Test Case 5
+    ([5, 5, 5, 5], 20),
+    # Test Case 6
+    ([1, 1, 1, 1, 1, 1, 1], 10**9),
+    # Test Case 7
+    ([10**8] * 1000, 10**16)
 ]
 
+results = [
+    # Result for Test Case 1
+    1,
+    # Result for Test Case 2
+    3,
+    # Result for Test Case 3
+    -1,
+    # Result for Test Case 4
+    4,
+    # Result for Test Case 5
+    -1,
+    # Result for Test Case 6
+    -1,
+    # Result for Test Case 7
+    -1,
+]
 
 
 ## 사람 임포트 함수
@@ -40,11 +49,12 @@ def load_answer_func(name):
     answer_count = 0
     answer_time = 0
     for n,i in enumerate(test_cases):
+        temp_i = copy.deepcopy(i)
         start = time.time()
         if type(i) is tuple:
-            temp_answer = name.solution(*i)
+            temp_answer = name.solution(*temp_i)
         else:
-            temp_answer = name.solution(i)
+            temp_answer = name.solution(temp_i)
         print("---------------------------------------")
         print(f"테스트 > {n+1}")
         print(f"입력값 > {i}")
@@ -63,6 +73,9 @@ def load_answer_func(name):
     if len(test_cases) == answer_count:
         print(f"경과 시간 {answer_time}")
         print("전부 맞았습니다!!")
+    else:
+        print("틀린 테스트 케이스가 있습니다.")
+
 
 for p in people:
     temp_import = load_module_func(p)

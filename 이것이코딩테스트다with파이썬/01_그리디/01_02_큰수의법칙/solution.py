@@ -1,7 +1,7 @@
 import time
 import importlib
 
-people = ["hk"]
+people = ["hk","answer"]
 
 test_cases = [
     (5, 8, 3, [2, 4, 5, 4, 6]),
@@ -54,6 +54,8 @@ def load_answer_func(name):
     if len(test_cases) == answer_count:
         print(f"경과 시간 {answer_time}")
         print("전부 맞았습니다!!")
+    else:
+        print("틀린 테스트 케이스가 있습니다.")
 
 for p in people:
     temp_import = load_module_func(p)

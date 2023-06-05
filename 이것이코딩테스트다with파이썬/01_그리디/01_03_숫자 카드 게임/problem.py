@@ -3,4 +3,4 @@ def solution(n,m,array):
     
     return answer
 
-# print(3, 3, [[3, 1, 2], [4, 1, 4], [2, 2, 2]])
+# print(solution(3, 3, [[3, 1, 2], [4, 1, 4], [2, 2, 2]]))

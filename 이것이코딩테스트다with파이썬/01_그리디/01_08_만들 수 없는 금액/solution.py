@@ -1,31 +1,32 @@
 import time
 import importlib
 
-people = ["hk"]
+people = ["hk","answer"]
 
 test_cases = [
-    (30),
-    (120),
-    (380),
-    (540),
-    (1000),
-    (10),
-    (50),
-    (200),
-    (750),
-    (990),
+    # Test Case 1
+    (5, [3, 2, 1, 1, 9]),
+    # Test Case 2
+    (3, [3, 5, 7]),
+    # Test Case 3
+    (5, [1, 2, 3, 4, 5]),
+    # Test Case 4
+    (5, [1, 1, 1, 1, 1]),
+    # Test Case 5
+    (5, [2, 4, 6, 8, 10])
 ]
+
 results = [
-    3,
-    3,
-    7,
-    5,
-    2,
+    # Result for Test Case 1
+    8,
+    # Result for Test Case 2
     1,
-    1,
-    2,
-    4,
-    10,
+    # Result for Test Case 3
+    16,
+    # Result for Test Case 4
+    6,
+    # Result for Test Case 5
+    1
 ]
 
 
@@ -63,6 +64,8 @@ def load_answer_func(name):
     if len(test_cases) == answer_count:
         print(f"경과 시간 {answer_time}")
         print("전부 맞았습니다!!")
+    else:
+        print("틀린 테스트 케이스가 있습니다.")
 
 for p in people:
     temp_import = load_module_func(p)
