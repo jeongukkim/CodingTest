@@ -17,4 +17,4 @@ def solution(n):
 
     return result
 
-# print(solution("a1"))
+# print(solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]],[[1, 1, 1], [1, 1, 0], [1, 0, 1]]))
