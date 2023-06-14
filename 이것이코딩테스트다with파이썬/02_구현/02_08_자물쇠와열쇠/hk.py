@@ -1,21 +1,15 @@
-def solution(n):
-    answer = 0
+def solution(key,lock):
+    answer = True
     
-    dic = {}
+    for i in key:
+        print(i)
 
-    for yy in range(1,9):
-        for xx in range(1,9):
-            dic[(xx,yy)] = 1
+    print("asas")
 
-    x = ord(n[0])-96
-    y = int(n[1])
+    for i in lock:
+        print(i)
 
-    li = [(-2, -1), (-1, -2), (1, -2), (2, -1), (2, 1), (1, 2), (-1, 2), (-2, 1)]
-
-    for xx,yy in li:
-        if dic.get((x+xx,y+yy)):
-            answer += 1
 
     return answer
 
-print(solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]],[[1, 1, 1], [1, 1, 0], [1, 0, 1]]))
+print(solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]]))

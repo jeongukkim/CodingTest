@@ -1,4 +1,4 @@
-def solution(n):
+def solution(key,lock):
     row = int(n[1])
     column = int(ord(n[0])) - int(ord('a')) + 1
 
@@ -17,4 +17,4 @@ def solution(n):
 
     return result
 
-# print(solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]],[[1, 1, 1], [1, 1, 0], [1, 0, 1]]))
+# print(solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]]))
