@@ -1,6 +1,12 @@
-def solution(n):
+def solution(n,m,graph):
+    
     answer = 0
+    
 
     return answer
 
-# print(solution("a1"))
+print(solution(5,3,[[0,0,1,0,0],
+[0,0,2,0,1],
+[0,1,2,0,0],
+[0,0,1,0,0],
+[0,0,0,0,2]]))
