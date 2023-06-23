@@ -6,16 +6,26 @@ people = ["hk","answer"]
 
 test_cases = [
     # Test Case 1
-    ("c2"),
+    (6,3,["3 4",
+                    "2 5",
+                    "5 3"],
+                    3,["3 D",
+                    "15 L",
+                    "17 D"]),
     # Test Case 2
-    ("a1"),
+    (6,3,["3 4",
+                    "2 5",
+                    "5 3"],
+                    3,["3 D",
+                    "15 L",
+                    "17 D"]),
 ]
 
 results = [
     # Result for Test Case 1
-    6,
+    9,
     # Result for Test Case 2
-    2,
+    9,
 ]
 
 
