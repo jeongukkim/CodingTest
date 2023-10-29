@@ -1,40 +1,35 @@
 def solution(plans):
     answer = []
+    diff_m = 0
     
     plans.sort(key=lambda x: x[1])
     stack = []
-    for plan in plans:
-        if not stack:
-            stack.append(plan)
-            continue
-        prev_plan = stack.pop()
-        prev_h, prev_m = list(map(int, prev_plan[1].split(":")))
-        now_h, now_m = list(map(int, plan[1].split(":")))
-        diff_m = now_m - prev_m
-        diff_h = now_h - prev_h
-        if diff_m < 0:
-            diff_m += 60
-            diff_h -= 1
-        diff_m += diff_h * 60
+    for i in range(len(plans)):
+        now_name, now_time, now_runtime = plans[i]
         
-        if int(prev_plan[2]) > diff_m:
-            prev_plan[2] = f"{int(prev_plan[2]) - diff_m}"
-            stack.append(prev_plan)
-        else:
-            answer.append(prev_plan[0])
-            while stack:
-                diff_m = diff_m - int(prev_plan[2])
-                prev_plan = stack.pop()
-                if int(prev_plan[2]) > diff_m:
-                    prev_plan[2] = f"{int(prev_plan[2]) - diff_m}"
-                    stack.append(prev_plan)
-                    break
-                else:
-                    answer.append(prev_plan[0])
-        stack.append(plan)
+        while stack:
+            prev_name, prev_runtime = stack.pop()
+            if diff_m >= prev_runtime:
+                diff_m -= prev_runtime
+                answer.append(prev_name)
+            else :
+                stack.append((prev_name, prev_runtime - diff_m))
+                break
+                
+        stack.append((now_name, int(now_runtime)))
+        
+        if i < len(plans)-1 :
+            now_h, now_m = list(map(int, now_time.split(":")))
+            next_time = plans[i+1][1]
+            next_h, next_m = list(map(int, next_time.split(":")))
+            diff_m = next_m - now_m
+            diff_h = next_h - now_h
+            if diff_m < 0:
+                diff_m += 60
+                diff_h -= 1
+            diff_m += diff_h * 60
     
     while stack:
         answer.append(stack.pop()[0])
         
-    
     return answer
