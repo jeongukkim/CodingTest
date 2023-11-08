@@ -24,7 +24,7 @@ def solution(distance, rocks, n):
                 value = rock
         
         if num_removed_rocks <= n:
-            answer = min_distance
+            answer = mid
             start = mid + 1
         else:
             end = mid - 1
